@@ -1,0 +1,25 @@
+- heading: Commands
+  commands:
+    - name: list
+      alias: l
+      description: list service accounts of org steps
+      value:
+        script: gcloud iam service-accounts list --project=$(gcloud projects list | grep prj-b-seed- | sed 's/ .*//')
+
+    - name: list-cicd
+      alias: lc
+      description: list service accounts of cicd
+      value:
+        script: gcloud iam service-accounts list --project=$(gcloud projects list | grep prj-b-cicd- | sed 's/ .*//')
+
+    - name: list-bu1
+      alias: l1
+      description: list service accounts of bu 1
+      value:
+        script: gcloud iam service-accounts list --project=$(gcloud projects list | grep prj-bu1-c-infra-pipeline- | sed 's/ .*//')
+
+    - name: list-bu2
+      alias: l2
+      description: list service accounts of bu 1
+      value:
+        script: gcloud iam service-accounts list --project=$(gcloud projects list | grep prj-bu2-c-infra-pipeline- | sed 's/ .*//')

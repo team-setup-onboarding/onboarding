@@ -1,0 +1,67 @@
+--
+- heading: Commands
+  commands:
+    - name: hello
+      description: Prints hello world
+      value:
+        shell: echo hello world
+      usage: ~
+      alias: hw
+      dependencies: ~
+      min_args: ~
+
+    - name: repos
+      alias: r
+      description: manage the project repositories
+      value:
+        node
+      dependencies:
+        - description: the project default directory must be set, did you run onboarding.sh?
+          value:
+            envar: TEAM_HOME
+        - description: seems obvious but git must exist
+          value:
+            command: git
+
+    - name: github
+      alias: gh
+      description: manage github access
+      value:
+        node
+      dependencies:
+        - description: the project default directory must be set, did you run onboarding.sh?
+          value:
+            envar: TEAM_HOME
+
+    - name: gitlab
+      alias: gl
+      description: manage gitlab access
+      value:
+        node
+      dependencies:
+        - description: the project default directory must be set, did you run onboarding.sh?
+          value:
+            envar: TEAM_HOME
+
+    - name: pair
+      alias: p
+      description: manage pair settings for git commits
+      value:
+        node
+      dependencies:
+        - description: git must be installed
+          value:
+            command: git
+
+    - name: gcloud
+      alias: gc
+      description: gcloud config creation and example gcloud commands, you know, the long list of names you can never remember
+      value:
+        node
+      dependencies:
+        - description: gcloud must be installed
+          value:
+            command: gcloud
+        - description: direnv must be installed
+          value:
+            command: direnv

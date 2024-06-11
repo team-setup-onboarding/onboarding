@@ -1,0 +1,18 @@
+- heading: Commands
+  commands:
+    - name: login
+      alias: i
+      description: Store the gitlab personal access token (scope api) to the keychain
+      value:
+        script: login.sh
+    - name: logout
+      alias: o
+      description: Remove the personal access token from the keychain
+      value:
+        script: logout.sh
+    - name: _get-secret
+      alias: _g
+      description: Get the personal access token from the keychain
+      value:
+        script: _get-secret.sh
+

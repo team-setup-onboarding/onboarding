@@ -1,0 +1,53 @@
+- heading: Commands
+  commands:
+    - name: init
+      alias: i
+      description: Initialize a new config in the current directory
+      min_args: 2
+      max_args: 2
+      usage: "<config_name> <gcloud_email>"
+      value:
+        script: create-config.sh
+
+    - name: list
+      alias: l
+      description: list current configs
+      value:
+        script: gcloud config configurations list
+
+    - name: active
+      alias: a
+      description: list active config
+      value:
+        script: gcloud config configurations list | grep -v False
+
+    - name: projects
+      alias: p
+      description: list projects
+      value:
+        script: gcloud projects list
+
+    - name: repos
+      alias: r
+      description: manage the project repositories
+      value:
+        node
+      dependencies:
+        - description: the project default directory must be set, did you run onboarding.sh?
+          value:
+            envar: TEAM_HOME
+        - description: seems obvious but git must exist
+          value:
+            command: git
+
+    - name: service-accounts-list
+      alias: sal
+      description: show the service accounts
+      value:
+        script: gcloud iam service-accounts list --project=$(gcloud projects list | grep prj-b-seed- | sed 's/ .*//')
+
+    - name: service-accounts
+      alias: sa
+      description: service accounts
+      value:
+        node

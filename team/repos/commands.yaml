@@ -1,0 +1,33 @@
+- heading: Commands
+  commands:
+    - name: status
+      alias: s
+      description: Show the status of your EaaS repos
+      value:
+        script: status.sh
+
+    - name: list
+      alias: l
+      description: list the repos in the EaaS Gitlab organisation, --help for options
+      value:
+        script: list.sh
+
+    - name: clone-all
+      alias: ca
+      description: fetches repos for EaaS from gitlab and clones them to $RTL_HOME
+      value:
+        script: clone-all.sh
+      dependencies:
+        - description: where the project directory is located
+          value:
+            envar: RTL_HOME
+
+    - name: update-all
+      alias: ua
+      description: updates repos for EaaS from gitlab and checks against repos in $RTL_HOME
+      value:
+        script: update-all.sh
+      dependencies:
+        - description: where the project directory is located
+          value:
+            envar: RTL_HOME

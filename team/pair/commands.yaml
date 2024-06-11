@@ -1,0 +1,32 @@
+- heading: Commands
+  commands:
+    - name: list
+      alias: l
+      description: Lists current pairs
+      value:
+        script: git-pair show
+    - name: set
+      alias: s
+      description: sets the people you're pairing with
+      min_args: 1
+      usage: "[<initial>, <initial>..."
+      value:
+        script: git-pair set
+    - name: unset
+      alias: u
+      description: unsets the people you're pairing with
+      value:
+        script: git-pair unset
+    - name: add-new-person
+      alias: a
+      description: add a new pair
+      min_args: 2
+      usage: "<initials> <email>"
+      value:
+        script: git-pair add
+    - name: pairs-list
+      alias: p
+      description: list all pairs
+      value:
+        script: git-pair list
+

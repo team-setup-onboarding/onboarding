@@ -1,0 +1,3 @@
+#! /bin/bash -ue
+dir=$(cd $( dirname $( realpath "${BASH_SOURCE[0]}" ) ) && cd .. && pwd )
+COMMANDS_DIRECTORY="$dir" CLI_NAME='team' sdoc "$@"
