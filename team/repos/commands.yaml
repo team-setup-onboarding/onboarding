@@ -2,32 +2,32 @@
   commands:
     - name: status
       alias: s
-      description: Show the status of your EaaS repos
+      description: Show the status of your team repos
       value:
         script: status.sh
 
     - name: list
       alias: l
-      description: list the repos in the EaaS Gitlab organisation, --help for options
+      description: list the repos in the team github organisation, --help for options
       value:
-        script: list.sh
+        script: list-github.sh
 
     - name: clone-all
       alias: ca
-      description: fetches repos for EaaS from gitlab and clones them to $RTL_HOME
+      description: fetches repos for the team from github and clones them to $TEAM_HOME
       value:
-        script: clone-all.sh
+        script: clone-all-github.sh
       dependencies:
         - description: where the project directory is located
           value:
-            envar: RTL_HOME
+            envar: TEAM_HOME
 
     - name: update-all
       alias: ua
-      description: updates repos for EaaS from gitlab and checks against repos in $RTL_HOME
+      description: updates repos for the team from github and checks against repos in $TEAM_HOME
       value:
         script: update-all.sh
       dependencies:
         - description: where the project directory is located
           value:
-            envar: RTL_HOME
+            envar: TEAM_HOME
