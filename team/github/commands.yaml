@@ -1,0 +1,30 @@
+---
+- heading: Commands
+  commands:
+    - name: teams
+      alias: t
+      description: list the teams in the github organisation
+      value:
+        script: teams.sh
+      dependencies:
+        - description: required to authenticate against github api (should change to use keychain)
+          value:
+            envar: GHPAT
+    - name: members
+      alias: m
+      description: list the members in the github organisation
+      value:
+        script: members.sh
+      dependencies:
+        - description: required to authenticate against github api
+          value:
+            envar: GHPAT
+    - name: repos
+      alias: r
+      description: list the repos in the github organisation
+      value:
+        script: repos.sh
+      dependencies:
+        - description: required to authenticate against github api
+          value:
+            envar: GHPAT
