@@ -1,0 +1,42 @@
+#!/bin/sh
+
+set -eu
+
+remove_coauthors() {
+    commitmsg="$1"
+
+    tmpfile="$commitmsg"-temp
+    sed -e '/^Co-authored-by/d' "$commitmsg" >"$tmpfile"
+    mv "$tmpfile" "$commitmsg"
+}
+
+append_coauthors() {
+    commitmsg="$1"
+
+    toppart="$commitmsg"-toppart
+    sed -n '/^# ------------------------ >8 ----/q;p' "$commitmsg" >"$toppart"
+
+    btmpart="$commitmsg"-bottompart
+    sed -n '/^# ------------------------ >8 ----/,$p' "$commitmsg" >"$btmpart"
+
+    mv "$toppart" "$commitmsg"
+    $TEAM_HOME/onboarding/sh/git-pair print >>"$commitmsg"
+    cat "$btmpart" >>"$commitmsg"
+    rm "$btmpart"
+}
+
+print_coauthors() {
+    echo 'Committing with co-authors:'
+    OLDIFS="$IFS"
+    IFS='
+'
+    for AUTHOR in $($TEAM_HOME/onboarding/sh/git-pair show)
+    do
+        printf " + $AUTHOR\n"
+    done
+    IFS="$OLDIFS"
+}
+
+remove_coauthors "$1"
+append_coauthors "$1"
+print_coauthors
