@@ -33,6 +33,7 @@ install_dependencies() {
   brew tap -q matthewwoodruff/sdoc https://github.com/matthewwoodruff/sdoc
   packages=( \
     "sdoc" \
+    "gh" \
     "jq" \
     "terraform" \
     "--cask google-cloud-sdk" \

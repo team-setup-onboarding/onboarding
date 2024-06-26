@@ -10,11 +10,11 @@ fi
 
 case $key in
     -short)
-    curl -SsL -H "Authorization: token ${GHPAT}" https://api.github.com/orgs/team-setup-onboarding/teams | jq -r .[].name
+    gh api -H "Accept: application/vnd.github+json" https://api.github.com/orgs/team-setup-onboarding/teams | jq -r .[].name
     ;;
 
     *)
-    curl -SsL -H "Authorization: token ${GHPAT}" https://api.github.com/orgs/team-setup-onboarding/teams | jq '.'
+    gh api -H "Accept: application/vnd.github+json" https://api.github.com/orgs/team-setup-onboarding/teams | jq '.'
     ;;
 
 esac
