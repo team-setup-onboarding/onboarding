@@ -16,3 +16,18 @@
       description: list the repos in the github organisation
       value:
         script: repos.sh
+    - name: login
+      description: authenticate with github
+      value:
+        shell: gh auth login --hostname github.com
+      alias: l
+    - name: authstatus
+      description: am I logged in to github? Add '-t' to show token
+      value:
+        shell: gh auth status --hostname github.com
+      alias: as
+    - name: security
+      description: list any security advisories
+      value:
+        script: security-advisories.sh
+      alias: sec
