@@ -17,7 +17,7 @@
       description: unsets the people you're pairing with
       value:
         script: git-pair unset
-    - name: add-new-person
+    - name: add-person
       alias: a
       description: add a new pair
       min_args: 2
