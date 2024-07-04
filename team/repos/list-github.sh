@@ -2,11 +2,10 @@
 set -Eeu -o pipefail
 
 key=""
-if [[ $# -gt 1 ]]; then
-    key="$2"
+if [[ $# -gt 0 ]]; then
+    key="$1"
 else
     key="-short"
 fi
 
 team github repos $key
-

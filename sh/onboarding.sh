@@ -43,6 +43,7 @@ install_dependencies() {
     "coreutils" \
     "direnv" \
     "node" \
+    "fzf" \
     )
 
   for i in "${packages[@]}"
