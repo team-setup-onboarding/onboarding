@@ -5,13 +5,13 @@ scripts and repos available to the GitHub team.
 
 ## Getting started
 1. Clone this repo
-2. Execute the script `<path-to-repo>/sh/onboarding.sh`
+2. Execute the script `sh/onboarding.sh`
 3. Explore the CLI by typing `team` on the command line
 
 ## Prerequisites
 * You're using a modern mac
-* Use zsh with Robbie Russell's oh-my-zsh installed
-* HomeBrew is installed
+* Use zsh with [Robby Russell's oh-my-zsh](https://ohmyz.sh/) installed
+* [HomeBrew](https://brew.sh/) is installed
 
 ## Using the team cli
 See what commands are available to you
